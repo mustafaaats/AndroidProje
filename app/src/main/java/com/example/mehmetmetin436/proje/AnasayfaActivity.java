@@ -56,7 +56,7 @@ public class AnasayfaActivity extends AppCompatActivity {
             }
         });
     }
-    //gelen fotoğrafon image hhhh viewimize yerleşesini sağlar.
+    //gelen fotoğrafon image hhhh viewimize yerleşesini sağlar.Mete
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
         if (requestCode==RESULT_LOAD_IMAGE_KAMERA){
