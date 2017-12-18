@@ -4,22 +4,22 @@ package com.example.mehmetmetin436.proje;
  * Created by metin on 6.12.2017.
  */
 
-public class Kullanicilar {
+public class Kullanicilardb {
     private String kulad;
     private String soyad;
     private String ad;
     private String sifre;
 
-    public Kullanicilar(){}
+    public Kullanicilardb(){}
 
-    public Kullanicilar(String ad, String soyad,String kulad,String sifre){
+    public Kullanicilardb(String ad, String soyad, String kulad, String sifre){
         this.kulad=kulad;
         this.soyad=soyad;
         this.sifre=sifre;
         this.ad=ad;
     }
 
-    public Kullanicilar(String kulad, String sifre){
+    public Kullanicilardb(String kulad, String sifre){
         this.kulad=kulad;
         this.sifre=sifre;
     }

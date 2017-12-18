@@ -47,7 +47,7 @@ public class KaydolActivity extends AppCompatActivity {
         String sifre = sifreEd.getText().toString();
         String sifreTekrar = sifreTekrarEd.getText().toString();
         if(sifre.equals(sifreTekrar) && kulad.equals(kuladTekrar)){
-            Kullanicilar kullanici = new Kullanicilar(adi,soyadi,kulad,sifre);
+            Kullanicilardb kullanici = new Kullanicilardb(adi,soyadi,kulad,sifre);
             Database db = new Database(KaydolActivity.this);
             db.kullaniciEkle(kullanici);
             Toast.makeText(this,"kaydınız tamamlanmıştır.",Toast.LENGTH_SHORT).show();

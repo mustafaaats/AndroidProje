@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        veriKulad=getSharedPreferences(MAIN_DATA,MODE_PRIVATE).getString(KUL_KEY,"kullanıcı adı bulunamadı");
-        veriSifre=getSharedPreferences(MAIN_DATA,MODE_PRIVATE).getString(SIFRE_KEY,"Şifre Bulunamadı");
+        veriKulad=getSharedPreferences(MAIN_DATA,MODE_PRIVATE).getString(KUL_KEY,"");
+        veriSifre=getSharedPreferences(MAIN_DATA,MODE_PRIVATE).getString(SIFRE_KEY,"");
         sifreEdit.setText(veriSifre);
         kuladEdit.setText(veriKulad);
 
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         String kulad = kuladEdit.getText().toString();
         String sifre = sifreEdit.getText().toString();
         Database db = new Database(MainActivity.this);
-        Kullanicilar kullanici = new Kullanicilar(kulad,sifre);
+        Kullanicilardb kullanici = new Kullanicilardb(kulad,sifre);
         varmi=db.varMı(kullanici);
         if(varmi==true){
             Toast.makeText(this,"Kullanıcı girişiniz başarılı.",Toast.LENGTH_SHORT).show();
