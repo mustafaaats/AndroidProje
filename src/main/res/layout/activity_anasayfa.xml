@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.mehmetmetin436.proje.AnasayfaActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kitap Ekleme Ekranı"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >>
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kitap Adi"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#000000"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="kitap ismini giriniz"
+                        android:id="@+id/kitapAdi"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kitap ISBN"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#000000"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="isbn"
+                        android:inputType="numberDecimal"
+                        android:id="@+id/kitapIsbn"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yazar Adı"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#000000"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Yazar adı"
+                        android:id="@+id/kitapYazar"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kitap Türü"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#000000"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Kitap Türü"
+                        android:id="@+id/kitapTuru"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Resim Ekle"
+                        android:layout_marginRight="10dp"
+                        android:textColor="#000000"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="kitap resmi"
+                        android:id="@+id/btnKitapResmi"
+                        android:onClick="resimClicked"/>
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="100px"
+                        android:layout_height="100px"
+                        />
+                </TableRow>
+            </TableLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnKitapEkle"
+                    android:onClick="ekleClicked"
+                    android:layout_margin="1dp"
+                    android:text="Kitap ekle"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnKitapGuncelle"
+                    android:layout_margin="1dp"
+                    android:onClick="guncelleClicked"
+                    android:text="Kitap Güncelle"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnKitapSil"
+                    android:layout_margin="1dp"
+                    android:onClick="silClicked"
+                    android:text="Kitap sil"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/liste"/>
+</LinearLayout>
+
