@@ -57,11 +57,12 @@
                         android:id="@+id/t3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ŞİFRE" />
+                        android:text="PAROLA" />
                     <EditText
                         android:id="@+id/edSifre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textPassword"
                         />
                 </TableRow>
                 <TableRow
@@ -72,11 +73,12 @@
                         android:id="@+id/t4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ŞİFRE TEKRAR" />
+                        android:text="PAROLA TEKRAR" />
                     <EditText
                         android:id="@+id/edSifreTekrar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textPassword"
                         />
                 </TableRow>
                 <TableRow

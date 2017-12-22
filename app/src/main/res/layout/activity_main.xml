@@ -41,14 +41,14 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ŞİFRE" />
+                    android:text="Parola" />
 
                 <EditText
                     android:id="@+id/editSifre"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName"
+                    android:inputType="textPassword"
                     />
             </TableRow>
 
@@ -62,7 +62,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="şifreyi hatırla"
+                android:text="Parolayı Hatırla"
                 android:id="@+id/cbHatirla"/>
             <Button
                 android:layout_height="wrap_content"
