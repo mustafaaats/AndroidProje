@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class AnasayfaActivity extends AppCompatActivity {
+public class AnasayfaActivity extends MainActivity {
 
 
     Button kitapBtn,resimBtn;
@@ -44,7 +44,7 @@ public class AnasayfaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anasayfa);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//https://gelecegiyazanlar.turkcell.com.tr/konu/android/egitim/android-201/eylem-dugmeleri-eklemek
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);//https://gelecegiyazanlar.turkcell.com.tr/konu/android/egitim/android-201/eylem-dugmeleri-eklemek
         //proje yazısının anasayfa gibi çalışması için yazılan kod mainActivityi manifest dosyasında ana activity olarak ayarlamamız gerekiyor
 
         kitapBtn=(Button)findViewById(R.id.btnKitapEkle);
@@ -118,10 +118,9 @@ public class AnasayfaActivity extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu,menu);
-        getMenuInflater().inflate(R.menu.cikis_menu,menu);
         return true;
     }
-    public boolean onOptionsItemSelected(MenuItem item){
+    /*public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()) {
             case R.id.uygulmaKapat:
                 System.exit(0);
@@ -133,7 +132,7 @@ public class AnasayfaActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
+    }*/
 
     public void resimClicked(View view){
         popup.show();

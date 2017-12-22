@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"Kullanıcı girişiniz başarılı.",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this,AnasayfaActivity.class);
             startActivity(intent);
-
         }
         else {
             Toast.makeText(this,"Kullanıcı girişiniz başarısız.",Toast.LENGTH_SHORT).show();
@@ -78,19 +77,27 @@ public class MainActivity extends AppCompatActivity {
             editor.putString(KUL_KEY,kuladEdit.getText().toString());
             editor.putString(SIFRE_KEY,sifreEdit.getText().toString());
             editor.commit();//Değişikliklerinizin kaydedilmesi için commit() kullanılır.
-            Toast.makeText(this,"Check Box işaretli",Toast.LENGTH_LONG).show();
         }
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu,menu);
-        return true;
+        menu.getItem(0).getSubMenu().getItem(2).setVisible(false);
+        menu.getItem(0).getSubMenu().getItem(3).setVisible(false);
+        return super.onCreateOptionsMenu(menu);
     }
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()) {
             case R.id.uygulmaKapat:
+                finish();
                 System.exit(0);
-                return true;
+            case R.id.diliDegistir:
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
+                startActivity(intent);
+            case R.id.cikisi_yap:
+                Intent intent1 = new Intent(this,MainActivity.class);
+                startActivity(intent1);
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -58,10 +58,12 @@ public class KaydolActivity extends AppCompatActivity {
     }
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu,menu);
-        return true;
+        menu.getItem(0).getSubMenu().getItem(2).setVisible(false);
+        menu.getItem(0).getSubMenu().getItem(3).setVisible(false);
+        return super.onCreateOptionsMenu(menu);
 
     }
-    public boolean onOptionsItemSelected(MenuItem item){
+    /*public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()) {
             case R.id.uygulmaKapat:
                 System.exit(0);
@@ -70,6 +72,6 @@ public class KaydolActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
-    }
+    }*/
 
 }
