@@ -150,24 +150,40 @@ public class AnasayfaActivity extends MainActivity {
         String Isbn=isbnEt.getText().toString();
         String yazar_adi=yazarAdEt.getText().toString();
         String kitap_turu=kitapTuruEt.getText().toString();
-        Kitaplardb kitap=new Kitaplardb(kitap_adi,Isbn,yazar_adi,kitap_turu);
-        Database db = new Database(AnasayfaActivity.this);
-        db.kitapEkle(kitap);
-        Toast.makeText(this, "Kitap Kaydı Başarıyla Gerçekleşmiştir", Toast.LENGTH_SHORT).show();
-        listele();
+        if (kitap_adi.isEmpty() || Isbn.isEmpty() || yazar_adi.isEmpty() || yazar_adi.isEmpty() || kitap_turu.isEmpty()){
+            Toast.makeText(this, "Lütfen boş alanları doldurunuz...", Toast.LENGTH_SHORT).show();
+        }else{
+            Kitaplardb kitap=new Kitaplardb(kitap_adi,Isbn,yazar_adi,kitap_turu);
+            Database db = new Database(AnasayfaActivity.this);
+            db.kitapEkle(kitap);
+            Toast.makeText(this, "Kitap Kaydı Başarıyla Gerçekleşmiştir", Toast.LENGTH_SHORT).show();
+            listele();
+            kitapAdEt.setText("");
+            isbnEt.setText("");
+            yazarAdEt.setText("");
+            kitapTuruEt.setText("");
+        }
     }
-    public void guncelleClicked(View view){
+    public void guncelleClicked(View view) {
         Database DB = new Database(AnasayfaActivity.this);
         String kitap_adi = kitapAdEt.getText().toString();
         String isbn = isbnEt.getText().toString();
         String yazar_adi = yazarAdEt.getText().toString();
         String kitap_turu = kitapTuruEt.getText().toString();
+        if (kitap_adi.isEmpty() || isbn.isEmpty() || yazar_adi.isEmpty() || yazar_adi.isEmpty() || kitap_turu.isEmpty()) {
+            Toast.makeText(this, "Lütfen boş alanları doldurunuz...", Toast.LENGTH_SHORT).show();
+        } else {
 
-        Kitaplardb kitap=new Kitaplardb(id,kitap_adi,isbn,yazar_adi,kitap_turu);
+            Kitaplardb kitap = new Kitaplardb(id, kitap_adi, isbn, yazar_adi, kitap_turu);
 
-        DB.kitapGuncelle(kitap);
-        Toast.makeText(this, "Kitap Güncelleme Başarıyla Gerçekleşmiştir", Toast.LENGTH_SHORT).show();
-        listele();
+            DB.kitapGuncelle(kitap);
+            Toast.makeText(this, "Kitap Güncelleme Başarıyla Gerçekleşmiştir", Toast.LENGTH_SHORT).show();
+            listele();
+            kitapAdEt.setText("");
+            isbnEt.setText("");
+            yazarAdEt.setText("");
+            kitapTuruEt.setText("");
+        }
     }
 
     public void silClicked(View view){
@@ -176,5 +192,9 @@ public class AnasayfaActivity extends MainActivity {
         DB.KitapSil(kitap);
         Toast.makeText(this, "Kitap Silme Başarıyla Gerçekleşmiştirsil", Toast.LENGTH_SHORT).show();
         listele();
+        kitapAdEt.setText("");
+        isbnEt.setText("");
+        yazarAdEt.setText("");
+        kitapTuruEt.setText("");
     }
 }

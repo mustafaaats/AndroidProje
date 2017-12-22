@@ -151,7 +151,7 @@ public class Database extends SQLiteOpenHelper {
         DB.insert(TABLE_NAME,null,cont);
         DB.close();
     }
-
+    static String[] kullanici;
     public boolean varMı(Kullanicilardb kullanicilar){
         SQLiteDatabase DB = this.getReadableDatabase();
 
@@ -170,6 +170,8 @@ public class Database extends SQLiteOpenHelper {
             String sifre = cursor.getString(4);
             if(sifre.equals(kullanicilar.getSifre()) && kulad.equals(kullanicilar.getKulad())){
                 a=1;
+                kullanici=new String[]{cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4)};
+                break;
             }
             else{
                 a=-1;
@@ -195,7 +197,6 @@ public class Database extends SQLiteOpenHelper {
         }
         return urunlist;
     }
-
 
     public void kitapEkle(Kitaplardb kitaplar){
 
@@ -229,4 +230,9 @@ public class Database extends SQLiteOpenHelper {
         DB.close();
 
     }
+    public String[] profil(){
+        return kullanici;
+    }
+
+
 }

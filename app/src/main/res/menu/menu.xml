@@ -21,14 +21,14 @@
                 android:icon="@drawable/ic_action_translate"
                 android:title="Dili Değiştir" />
             <item
-                android:id="@+id/cikisi_yap"
-                android:icon="@drawable/ic_action_exit"
-                android:title="Çıkış Yap"
-                />
-            <item
                 android:id="@+id/profile"
                 android:icon="@drawable/ic_action_profile"
                 android:title="Profilimi Görüntüle"
+                />
+            <item
+                android:id="@+id/cikisi_yap"
+                android:icon="@drawable/ic_action_exit"
+                android:title="Çıkış Yap"
                 />
         </menu>
     </item>
