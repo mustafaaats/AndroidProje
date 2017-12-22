@@ -91,17 +91,25 @@ public class MainActivity extends AppCompatActivity {
             case R.id.uygulmaKapat:
                 finish();
                 System.exit(0);
+                break;
             case R.id.diliDegistir:
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.setClassName("com.android.settings", "com.android.settings.LanguageSettings");
                 startActivity(intent);
+                break;
             case R.id.cikisi_yap:
                 Intent intent1 = new Intent(this,MainActivity.class);
                 startActivity(intent1);
+                Toast.makeText(this,"Başarıyla çıkış yapıldı.",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.profile:
+                Intent intent2 = new Intent(this,ProfileActivity.class);
+                startActivity(intent2);
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
-
+        return true;
     }
 
 }

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Dec 22 19:26:00 EET 2017
+#Sat Dec 23 00:29:11 EET 2017
 2.base=/home/mustafaaats/Desktop/Mobil/AndroidProje/app/build/intermediates/transforms/dexMerger/debug/15
 5.set=DEX
 0.path=classes.dex

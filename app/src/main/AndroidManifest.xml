@@ -15,18 +15,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
-
-        <activity android:name=".AnasayfaActivity" >
-
-        </activity>
+        <activity android:name=".AnasayfaActivity"></activity>
         <activity android:name=".KaydolActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.mehmetmetin436.proje.MainActivity" />
         </activity>
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

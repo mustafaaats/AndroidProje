@@ -54,6 +54,21 @@
                     android:layout_height="match_parent" >
 
                     <TextView
+                        android:id="@+id/t5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="KULLANICI ADI" />
+
+                    <EditText
+                        android:id="@+id/edKulad"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
                         android:id="@+id/t3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -79,36 +94,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
-                        />
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <TextView
-                        android:id="@+id/t5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="KULLANICI ADI" />
-
-                    <EditText
-                        android:id="@+id/edKulad"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content" />
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
-
-                    <TextView
-                        android:id="@+id/t6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="KULLANICI ADI TEKRAR" />
-                    <EditText
-                        android:id="@+id/edKuladTekrar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         />
                 </TableRow>
 
