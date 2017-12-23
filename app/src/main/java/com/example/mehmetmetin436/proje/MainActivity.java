@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         sifreEdit.setText(veriSifre);
         kuladEdit.setText(veriKulad);
 
+
     }
     public void kaydolClicked(View view){
         Intent intent = new Intent(MainActivity.this,KaydolActivity.class);
@@ -64,30 +67,39 @@ public class MainActivity extends AppCompatActivity {
         Database db = new Database(MainActivity.this);
         Kullanicilardb kullanici = new Kullanicilardb(kulad,sifre);
         varmi=db.varMı(kullanici);
-        if(varmi==true){
-            Toast.makeText(this,"Kullanıcı girişiniz başarılı.",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(MainActivity.this,AnasayfaActivity.class);
-            startActivity(intent);
+        if (kulad.isEmpty() || sifre.isEmpty()) {
+            Toast.makeText(this, R.string.bos_alan,Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(this,"Kullanıcı girişiniz başarısız.",Toast.LENGTH_SHORT).show();
-        }
+            if (varmi == true) {
+                Toast.makeText(this, R.string.kul_giris, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, AnasayfaActivity.class);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, R.string.kul_giris_hata, Toast.LENGTH_SHORT).show();
+            }
 
-        if(hatirlaCb.isChecked()){
-            editor.putString(KUL_KEY,kuladEdit.getText().toString());
-            editor.putString(SIFRE_KEY,sifreEdit.getText().toString());
-            editor.commit();//Değişikliklerinizin kaydedilmesi için commit() kullanılır.
+            if (hatirlaCb.isChecked()) {
+                editor.putString(KUL_KEY, kuladEdit.getText().toString());
+                editor.putString(SIFRE_KEY, sifreEdit.getText().toString());
+                editor.commit();//Değişikliklerinizin kaydedilmesi için commit() kullanılır.
+            }
         }
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu,menu);
-        menu.getItem(0).getSubMenu().getItem(2).setVisible(false);
-        menu.getItem(0).getSubMenu().getItem(3).setVisible(false);
+        menu.getItem(0).setVisible(false);
+        menu.getItem(1).getSubMenu().getItem(0).setVisible(false);
+        menu.getItem(1).getSubMenu().getItem(2).setVisible(false);
         return super.onCreateOptionsMenu(menu);
     }
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()) {
+            case R.id.anasayafa:
+                Intent intent3=new Intent(this,AnasayfaActivity.class);
+                startActivity(intent3);
+                break;
             case R.id.uygulmaKapat:
                 finish();
                 System.exit(0);
@@ -100,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.cikisi_yap:
                 Intent intent1 = new Intent(this,MainActivity.class);
                 startActivity(intent1);
-                Toast.makeText(this,"Başarıyla çıkış yapıldı.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.kul_cikis,Toast.LENGTH_SHORT).show();
                 break;
             case R.id.profile:
                 Intent intent2 = new Intent(this,ProfileActivity.class);

@@ -46,25 +46,26 @@ public class KaydolActivity extends AppCompatActivity {
         String sifre = sifreEd.getText().toString();
         String sifreTekrar = sifreTekrarEd.getText().toString();
         if (adi.isEmpty() || soyadi.isEmpty() || kulad.isEmpty() || sifre.isEmpty() || sifreTekrar.isEmpty()){
-            Toast.makeText(this,"Lütfen boş alanları doldurunuz",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,R.string.bos_alan,Toast.LENGTH_SHORT).show();
         }
         else {
             if (sifre.equals(sifreTekrar)) {
                 Kullanicilardb kullanici = new Kullanicilardb(adi, soyadi, kulad, sifre);
                 Database db = new Database(KaydolActivity.this);
                 db.kullaniciEkle(kullanici);
-                Toast.makeText(this, "kaydınız tamamlanmıştır.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.kayit_basarili, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
             } else {
-                Toast.makeText(this, "kullanıcı adı veya sifre aynı değil.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.kull_hata, Toast.LENGTH_SHORT).show();
             }
         }
     }
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu,menu);
-        menu.getItem(0).getSubMenu().getItem(2).setVisible(false);
-        menu.getItem(0).getSubMenu().getItem(3).setVisible(false);
+        menu.getItem(0).setVisible(false);
+        menu.getItem(1).getSubMenu().getItem(0).setVisible(false);
+        menu.getItem(1).getSubMenu().getItem(2).setVisible(false);
         return super.onCreateOptionsMenu(menu);
 
     }

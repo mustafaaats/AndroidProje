@@ -6,32 +6,40 @@
 
 
     <item
+        android:id="@+id/anasayafa"
+        app:showAsAction="ifRoom|withText"
+        android:title="@string/anasayfa"
+        android:icon="@drawable/ic_action_home"/>
+    <item
         android:id="@+id/afsduygulmaKapat"
         android:icon="@drawable/ic_action_toc"
         app:showAsAction="always"
-        android:title="Göster" >
+        android:title="@string/goster" >
         <menu>
+
             <item
-                android:id="@+id/uygulmaKapat"
-                android:icon="@drawable/ic_action_power"
-                android:title="Uygulamayı Kapat" />
+                android:id="@+id/profile"
+                android:icon="@drawable/ic_action_profile"
+                android:title="@string/profil_goruntule"
+                />
 
             <item
                 android:id="@+id/diliDegistir"
                 android:icon="@drawable/ic_action_translate"
-                android:title="Dili Değiştir" />
-            <item
-                android:id="@+id/profile"
-                android:icon="@drawable/ic_action_profile"
-                android:title="Profilimi Görüntüle"
-                />
+                android:title="@string/dil_degistir" />
+
             <item
                 android:id="@+id/cikisi_yap"
                 android:icon="@drawable/ic_action_exit"
-                android:title="Çıkış Yap"
+                android:title="@string/cikis_yap"
                 />
+            <item
+                android:id="@+id/uygulmaKapat"
+                android:icon="@drawable/ic_action_power"
+                android:title="@string/uyg_kapat" />
         </menu>
     </item>
+
 
 
 

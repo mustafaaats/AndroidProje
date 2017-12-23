@@ -23,7 +23,7 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="KULLANICI ADI" />
+                    android:text="@string/kulAd" />
 
                 <EditText
                     android:id="@+id/editKulad"
@@ -41,7 +41,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Parola" />
+                    android:text="@string/parola" />
 
                 <EditText
                     android:id="@+id/editSifre"
@@ -62,19 +62,19 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Parolayı Hatırla"
+                android:text="@string/hatirla"
                 android:id="@+id/cbHatirla"/>
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:id="@+id/buttonGiris"
-                android:text="giriş yap"
+                android:text="@string/giris"
                 android:gravity="center"
                 android:onClick="girisyapClicked"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="kaydol"
+                android:text="@string/kaydol"
                 android:id="@+id/buttonKaydol"
                 android:onClick="kaydolClicked"/>
         </TableLayout>

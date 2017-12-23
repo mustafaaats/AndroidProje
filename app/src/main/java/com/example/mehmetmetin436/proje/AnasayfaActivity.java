@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -44,6 +45,7 @@ public class AnasayfaActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anasayfa);
+
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);//https://gelecegiyazanlar.turkcell.com.tr/konu/android/egitim/android-201/eylem-dugmeleri-eklemek
         //proje yazısının anasayfa gibi çalışması için yazılan kod mainActivityi manifest dosyasında ana activity olarak ayarlamamız gerekiyor
 
@@ -151,12 +153,12 @@ public class AnasayfaActivity extends MainActivity {
         String yazar_adi=yazarAdEt.getText().toString();
         String kitap_turu=kitapTuruEt.getText().toString();
         if (kitap_adi.isEmpty() || Isbn.isEmpty() || yazar_adi.isEmpty() || yazar_adi.isEmpty() || kitap_turu.isEmpty()){
-            Toast.makeText(this, "Lütfen boş alanları doldurunuz...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.bos_alan, Toast.LENGTH_SHORT).show();
         }else{
             Kitaplardb kitap=new Kitaplardb(kitap_adi,Isbn,yazar_adi,kitap_turu);
             Database db = new Database(AnasayfaActivity.this);
             db.kitapEkle(kitap);
-            Toast.makeText(this, "Kitap Kaydı Başarıyla Gerçekleşmiştir", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.kitap_kayit, Toast.LENGTH_SHORT).show();
             listele();
             kitapAdEt.setText("");
             isbnEt.setText("");
@@ -171,13 +173,13 @@ public class AnasayfaActivity extends MainActivity {
         String yazar_adi = yazarAdEt.getText().toString();
         String kitap_turu = kitapTuruEt.getText().toString();
         if (kitap_adi.isEmpty() || isbn.isEmpty() || yazar_adi.isEmpty() || yazar_adi.isEmpty() || kitap_turu.isEmpty()) {
-            Toast.makeText(this, "Lütfen boş alanları doldurunuz...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.bos_alan, Toast.LENGTH_SHORT).show();
         } else {
 
             Kitaplardb kitap = new Kitaplardb(id, kitap_adi, isbn, yazar_adi, kitap_turu);
 
             DB.kitapGuncelle(kitap);
-            Toast.makeText(this, "Kitap Güncelleme Başarıyla Gerçekleşmiştir", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.kitap_basarili, Toast.LENGTH_SHORT).show();
             listele();
             kitapAdEt.setText("");
             isbnEt.setText("");
@@ -190,7 +192,7 @@ public class AnasayfaActivity extends MainActivity {
         Kitaplardb kitap = new Kitaplardb(id);
         Database DB = new Database(AnasayfaActivity.this);
         DB.KitapSil(kitap);
-        Toast.makeText(this, "Kitap Silme Başarıyla Gerçekleşmiştirsil", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.kitap_sil, Toast.LENGTH_SHORT).show();
         listele();
         kitapAdEt.setText("");
         isbnEt.setText("");
