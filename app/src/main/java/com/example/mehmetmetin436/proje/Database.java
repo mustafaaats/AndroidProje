@@ -115,9 +115,10 @@ public class Database extends SQLiteOpenHelper {
     private static final String COLOUMN_ISBN="isbn";
     private static final String COLOUMN_YAZARAD="yazar_adi";
     private static final String COLOUMN_KITAPTUR="kitap_turu";
+    private static final String COLOUMN_IMAGEK="image";
 
     private static final String queryKullanici = "CREATE TABLE "+TABLE_NAME+" ("+COLOUMN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+COLOUMN_AD+" TEXT NOT NULL,"+COLOUMN_SOYAD+" TEXT NOT NULL,"+COLOUMN_KULAD+" TEXT NOT NULL,"+COLOUMN_SIFRE+" TEXT NOT NULL)";
-    private static final String queryKitap = "CREATE TABLE "+TABLE2_NAME+" ("+COLOUMN_IDKITAP+" INTEGER PRIMARY KEY AUTOINCREMENT, "+COLOUMN_KITAPAD+" TEXT NOT NULL, "+COLOUMN_ISBN+" TEXT NOT NULL, "+COLOUMN_YAZARAD+" TEXT NOT NULL, "+COLOUMN_KITAPTUR+" TEXT NOT NULL)";
+    private static final String queryKitap = "CREATE TABLE "+TABLE2_NAME+" ("+COLOUMN_IDKITAP+" INTEGER PRIMARY KEY AUTOINCREMENT, "+COLOUMN_KITAPAD+" TEXT NOT NULL, "+COLOUMN_ISBN+" TEXT NOT NULL, "+COLOUMN_YAZARAD+" TEXT NOT NULL, "+COLOUMN_KITAPTUR+" TEXT NOT NULL,"+COLOUMN_IMAGEK+" BLOB NOT NULL)";
 
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -189,15 +190,14 @@ public class Database extends SQLiteOpenHelper {
 
         SQLiteDatabase DB = this.getReadableDatabase();
 
-        String urun[]={COLOUMN_IDKITAP,COLOUMN_KITAPAD,COLOUMN_ISBN,COLOUMN_YAZARAD,COLOUMN_KITAPTUR};
+        String kitap[]={COLOUMN_IDKITAP,COLOUMN_KITAPAD,COLOUMN_ISBN,COLOUMN_YAZARAD,COLOUMN_KITAPTUR};
         //Cursor cursor = DB.query(TABLE2_NAME,urun,null,null,null,null,null,null);
-        Cursor cursor = DB.query(TABLE2_NAME,urun,null, null, null, null, null);
+        Cursor cursor = DB.query(TABLE2_NAME,kitap,null, null, null, null, null);
         while (cursor.moveToNext()){
             urunlist.add(cursor.getInt(0)+"--"+cursor.getString(1)+"--"+cursor.getString(2)+"--"+cursor.getString(3)+"--"+cursor.getString(4));
         }
         return urunlist;
     }
-
     public void kitapEkle(Kitaplardb kitaplar){
 
         ContentValues cont = new ContentValues();
@@ -205,6 +205,9 @@ public class Database extends SQLiteOpenHelper {
         cont.put(COLOUMN_ISBN,kitaplar.getISBN());
         cont.put(COLOUMN_YAZARAD,kitaplar.getYazarAdi());
         cont.put(COLOUMN_KITAPTUR,kitaplar.getKitapTuru());
+
+        cont.put(COLOUMN_IMAGEK,kitaplar.getData());
+
         SQLiteDatabase DB = this.getWritableDatabase();
         DB.insert(TABLE2_NAME,null,cont);
         DB.close();
@@ -251,5 +254,18 @@ public class Database extends SQLiteOpenHelper {
         return array;
     }
 
+    /*Kitaplardb getContact(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String kitap[]={COLOUMN_IDKITAP,COLOUMN_KITAPAD,COLOUMN_ISBN,COLOUMN_YAZARAD,COLOUMN_KITAPTUR,COLOUMN_IMAGEK};
+        Cursor cursor = db.query(TABLE2_NAME,kitap, COLOUMN_IDKITAP + "=?",
+                new String[] { String.valueOf(id) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
 
+        Kitaplardb kitap = new Kitaplardb(Integer.parseInt(cursor.getString(0)),
+               ,cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getBlob(5));
+
+        return kitap;
+
+    }*/
 }

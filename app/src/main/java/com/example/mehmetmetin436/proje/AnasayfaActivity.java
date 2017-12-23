@@ -28,12 +28,15 @@ import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 public class AnasayfaActivity extends MainActivity {
 
-
+    Bitmap thumbnail;
     Button kitapBtn,resimBtn;
     Button guncelleKitap;
     private static int RESULT_LOAD_IMAGE_GALERI=101;
@@ -107,44 +110,42 @@ public class AnasayfaActivity extends MainActivity {
         });
     }
     //gelen fotoğrafon image viewimize yerleşesini sağlar.
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        if (requestCode==RESULT_LOAD_IMAGE_KAMERA){
-            Bundle extras = data.getExtras();
-            kitapResim.setImageBitmap((Bitmap) extras.get("data"));
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == RESULT_LOAD_IMAGE_GALERI){
+            if(resultCode == RESULT_OK) {
+                try {
+                    final Uri imageUri = data.getData();
+                    final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                    final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+
+                    //set profile picture form gallery
+                    kitapResim.setImageBitmap(selectedImage);
+
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }else if(requestCode == RESULT_LOAD_IMAGE_KAMERA){
+            if(resultCode == RESULT_OK) {
+                onCaptureImageResult(data);
+            }
         }
-        else if(requestCode!=RESULT_LOAD_IMAGE_GALERI){
-            Uri secFoto=data.getData();
-            String []dosyaYolu={MediaStore.Images.Media.DATA};
+    }
 
-            Cursor cursor = getContentResolver().query(secFoto,dosyaYolu,null,null,null);
-            cursor.moveToFirst();
-
-
-            int sutunIndex = cursor.getColumnIndex(dosyaYolu[0]);
-            String resminYolu=cursor.getString(sutunIndex);
-            cursor.close();
-            kitapResim.setImageBitmap(BitmapFactory.decodeFile(resminYolu));
-        }
+    private void onCaptureImageResult(Intent data) {
+        thumbnail = (Bitmap) data.getExtras().get("data");
+        kitapResim.setMaxWidth(200);
+        kitapResim.setImageBitmap(thumbnail);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu,menu);
         return true;
     }
-    /*public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()) {
-            case R.id.uygulmaKapat:
-                System.exit(0);
-                return true;
-            case  R.id.cikisi_yap:
-                Intent intent  = new Intent(AnasayfaActivity.this,MainActivity.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
 
     public void resimClicked(View view){
         popup.show();
@@ -158,6 +159,12 @@ public class AnasayfaActivity extends MainActivity {
     }
 
     public void ekleClicked(View view){
+        kitapResim.setDrawingCacheEnabled(true);
+        kitapResim.buildDrawingCache();
+        Bitmap bitmap = kitapResim.getDrawingCache();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
         String kitap_adi=kitapAdEt.getText().toString();
         String Isbn=isbnEt.getText().toString();
         String yazar_adi=yazarAdEt.getText().toString();
@@ -165,7 +172,7 @@ public class AnasayfaActivity extends MainActivity {
         if (kitap_adi.isEmpty() || Isbn.isEmpty() || yazar_adi.isEmpty() || yazar_adi.isEmpty() || kitap_turu.isEmpty()){
             Toast.makeText(this, R.string.bos_alan, Toast.LENGTH_SHORT).show();
         }else{
-            Kitaplardb kitap=new Kitaplardb(kitap_adi,Isbn,yazar_adi,kitap_turu);
+            Kitaplardb kitap=new Kitaplardb(data,kitap_adi,Isbn,yazar_adi,kitap_turu);
             Database db = new Database(AnasayfaActivity.this);
             db.kitapEkle(kitap);
             Toast.makeText(this, R.string.kitap_kayit, Toast.LENGTH_SHORT).show();
