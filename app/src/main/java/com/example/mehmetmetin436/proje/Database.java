@@ -170,7 +170,7 @@ public class Database extends SQLiteOpenHelper {
             String sifre = cursor.getString(4);
             if(sifre.equals(kullanicilar.getSifre()) && kulad.equals(kullanicilar.getKulad())){
                 a=1;
-                kullanici=new String[]{cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4)};
+                kullanici=new String[]{cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(0)};
                 break;
             }
             else{
@@ -232,6 +232,23 @@ public class Database extends SQLiteOpenHelper {
     }
     public String[] profil(){
         return kullanici;
+    }
+
+    public String[] kullaniciGuncelle(Kullanicilardb kullanici){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues cont = new ContentValues();
+
+        cont.put(COLOUMN_AD,kullanici.getAd());
+        cont.put(COLOUMN_SOYAD,kullanici.getSoyad());
+        cont.put(COLOUMN_KULAD,kullanici.getKulad());
+        cont.put(COLOUMN_SIFRE,kullanici.getSifre());
+
+        String where = COLOUMN_ID+"="+kullanici.getId();
+        DB.update(TABLE_NAME,cont,where,null);
+        DB.close();
+        varMı(kullanici);
+        String[] array = new String[]{kullanici.getAd(),kullanici.getSoyad(),kullanici.getSifre()};
+        return array;
     }
 
 

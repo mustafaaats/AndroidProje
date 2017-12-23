@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class KaydolActivity extends AppCompatActivity {
+public class KaydolActivity extends MainActivity {
 
     EditText adEd,soyadEd,kuladEd,kuladTekarEd,sifreEd,sifreTekrarEd;
 
@@ -61,7 +61,7 @@ public class KaydolActivity extends AppCompatActivity {
             }
         }
     }
-    public boolean onCreateOptionsMenu(Menu menu){
+    /*public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu,menu);
         menu.getItem(0).setVisible(false);
         menu.getItem(1).getSubMenu().getItem(0).setVisible(false);
@@ -69,7 +69,7 @@ public class KaydolActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
 
     }
-    /*public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()) {
             case R.id.uygulmaKapat:
                 System.exit(0);

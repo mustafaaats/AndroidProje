@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mehmetmetin436.proje">
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -23,6 +25,7 @@
                 android:value="com.example.mehmetmetin436.proje.MainActivity" />
         </activity>
         <activity android:name=".ProfileActivity"></activity>
+
     </application>
 
 </manifest>

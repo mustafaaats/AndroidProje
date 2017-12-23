@@ -1,5 +1,10 @@
 package com.example.mehmetmetin436.proje;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -20,9 +25,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class AnasayfaActivity extends MainActivity {
 
@@ -57,9 +64,11 @@ public class AnasayfaActivity extends MainActivity {
         kitapAdEt=(EditText)findViewById(R.id.kitapAdi);
         isbnEt=(EditText)findViewById(R.id.kitapIsbn);
         yazarAdEt=(EditText)findViewById(R.id.kitapYazar);
-        kitapTuruEt=(EditText)findViewById(R.id.kitapTuru);
+        kitapTuruEt=(EditText) findViewById(R.id.kitapTuru);
 
         kitapList=(ListView)findViewById(R.id.liste);
+
+
 
         kitapList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -71,7 +80,8 @@ public class AnasayfaActivity extends MainActivity {
                 kitapAdEt.setText(bol[1].toString());
                 isbnEt.setText(bol[2].toString());
                 yazarAdEt.setText(bol[3].toString());
-                kitapTuruEt.setText((bol[4].toString()));
+                kitapTuruEt.setText(bol[3].toString());
+
             }
         });
         listele();
@@ -164,6 +174,25 @@ public class AnasayfaActivity extends MainActivity {
             isbnEt.setText("");
             yazarAdEt.setText("");
             kitapTuruEt.setText("");
+            Intent intent = new Intent(getApplicationContext(), AnasayfaActivity.class);
+            PendingIntent pending = PendingIntent.getActivity(getApplicationContext(),
+                    (int) System.currentTimeMillis(), intent, 0);
+
+            Notification notification = new Notification.Builder(getApplicationContext())
+                    .setContentTitle("İŞLEMİNİZ BAŞARILI")//Bildirim Başlık Metni
+                    .setContentText(kitap_adi + " isimli kitabınız eklendi.") //Bildirimim açıklama metni
+                    .setSmallIcon(R.mipmap.ic_launcher) //Bildirimin küçük iconu
+                    .setContentIntent(pending) //Bildirim tıklanınca nereye gidilecek
+                    .setAutoCancel(true) //Bildirim kapatılabilsinmi
+                    .build(); //bildirim oluşturulsun
+
+            notification.defaults |= Notification.DEFAULT_SOUND; //bildirim geldiğinde Sesle uyarı yapacak
+
+            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.notify(0, notification); //Bildirimi ekranda göster
+
+            // Bildirim otomatik yok olacak tıklanmadan sonra
+            notification.flags |= Notification.FLAG_AUTO_CANCEL;
         }
     }
     public void guncelleClicked(View view) {
@@ -185,6 +214,7 @@ public class AnasayfaActivity extends MainActivity {
             isbnEt.setText("");
             yazarAdEt.setText("");
             kitapTuruEt.setText("");
+
         }
     }
 
@@ -198,5 +228,6 @@ public class AnasayfaActivity extends MainActivity {
         isbnEt.setText("");
         yazarAdEt.setText("");
         kitapTuruEt.setText("");
+
     }
 }
