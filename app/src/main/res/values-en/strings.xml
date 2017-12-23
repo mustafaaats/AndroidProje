@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Project</string>
-    <string name="kamera_ac">Open Camer</string>
+    <string name="app_name">Library</string>
+    <string name="kamera_ac">Open Camera</string>
     <string name="galeri_ac">Open Gallery</string>
     <string name="uyg_kapat">Close App</string>
     <string name="dil_degistir">Change Language</string>
@@ -36,4 +36,11 @@
     <string name="kul_giris_hata">Login failed!</string>
     <string name="kul_cikis">Logout successful!</string>
     <string name="anasayfa">Homepage</string>
+    <string name="evet">Yes</string>
+    <string name="hayir">No</string>
+    <string name="uyari">Warning</string>
+    <string name="kapat">Are you sure you want to close the application?</string>
+    <string name="onay">You will be redirected to the login screen to apply the updates.Do you confirm?</string>
+    <string name="bekle">Logging in. Please wait...</string>
+    <string name="bekle1">Logging out.Please wait...</string>
 </resources>

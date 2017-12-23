@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">Proje</string>
+    <string name="app_name">Kütüphane</string>
+    <string name="bekle">Giriş yapılıyor.Lütfen bekleyiniz...</string>
+    <string name="bekle1">Çıkış yapılıyor.Lütfen bekleyiniz...</string>
+    <string name="evet">Evet</string>
+    <string name="hayir">Hayır</string>
+    <string name="uyari">Uyarı</string>
     <string name="kamera_ac">Kamerayı Aç</string>
     <string name="galeri_ac">Galeriyi aç</string>
     <string name="goster">Göster</string>
@@ -35,6 +40,7 @@
     <string name="kul_giris">Başarıyla Giriş Yaptınız!</string>
     <string name="kul_giris_hata">Giriş Yapma İşleminiz Başarısız!</string>
     <string name="kul_cikis">Başarıyla Çıkış Yaptınız!</string>
-
+    <string name="kapat">Uygulamayı kapatmak istediğinizden emin misiniz?</string>
+    <string name="onay">Güncellemelerin uygulanabilmesi için giriş ekranına yönlendirileceksiniz.Onaylıyor musunuz?</string>
 
 </resources>

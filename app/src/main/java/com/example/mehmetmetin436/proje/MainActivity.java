@@ -1,7 +1,10 @@
 package com.example.mehmetmetin436.proje;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -72,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             if (varmi == true) {
+                ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog.setTitle(R.string.app_name);
+                progressDialog.setMessage(getResources().getString(R.string.bekle));
+                progressDialog.show();
+                progressDialog.setCancelable(false);
                 Toast.makeText(this, R.string.kul_giris, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, AnasayfaActivity.class);
                 startActivity(intent);
@@ -101,8 +109,22 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent3);
                 break;
             case R.id.uygulmaKapat:
-                finish();
-                System.exit(0);
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage(R.string.kapat).setCancelable(false).setPositiveButton(R.string.evet, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finishAffinity();
+
+                    }
+                }).setNegativeButton(R.string.hayir, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.setTitle(R.string.uyari);
+                alert.show();
                 break;
             case R.id.diliDegistir:
                 Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -110,6 +132,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.cikisi_yap:
+                ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog.setTitle(R.string.app_name);
+                progressDialog.setMessage(getResources().getString(R.string.bekle1));
+                progressDialog.show();
+                progressDialog.setCancelable(false);
                 Intent intent1 = new Intent(this,MainActivity.class);
                 startActivity(intent1);
                 Toast.makeText(this, R.string.kul_cikis,Toast.LENGTH_SHORT).show();

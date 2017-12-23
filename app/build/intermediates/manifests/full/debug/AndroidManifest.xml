@@ -8,6 +8,9 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="26" />
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:debuggable="true"
@@ -31,6 +34,14 @@
                 android:value="com.example.mehmetmetin436.proje.MainActivity" />
         </activity>
         <activity android:name="com.example.mehmetmetin436.proje.ProfileActivity" />
+
+        <receiver
+            android:name="com.example.mehmetmetin436.proje.AlarmReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
         <meta-data
             android:name="android.support.VERSION"

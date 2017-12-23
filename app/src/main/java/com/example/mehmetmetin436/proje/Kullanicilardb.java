@@ -9,6 +9,7 @@ public class Kullanicilardb {
     private String soyad;
     private String ad;
     private String sifre;
+    private int id;
 
     public Kullanicilardb(){}
 
@@ -23,6 +24,14 @@ public class Kullanicilardb {
         this.kulad=kulad;
         this.sifre=sifre;
     }
+    public Kullanicilardb(int id,String ad, String soyad, String kulad, String sifre){
+        this.kulad=kulad;
+        this.soyad=soyad;
+        this.sifre=sifre;
+        this.ad=ad;
+        this.id=id;
+    }
+
 
     public String getSoyad() {
         return soyad;
@@ -54,5 +63,13 @@ public class Kullanicilardb {
 
     public void setAd(String ad) {
         this.ad = ad;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
