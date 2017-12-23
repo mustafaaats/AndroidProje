@@ -27,7 +27,7 @@
                         android:id="@+id/t1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ADINIZ" />
+                        android:text="@string/ad" />
                     <EditText
                         android:id="@+id/edAd"
                         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                         android:id="@+id/t2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SOYADINIZ" />
+                        android:text="@string/soyad" />
                     <EditText
                         android:id="@+id/edSoyad"
                         android:layout_width="match_parent"
@@ -57,7 +57,7 @@
                         android:id="@+id/t5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="KULLANICI ADI" />
+                        android:text="@string/kulAd" />
 
                     <EditText
                         android:id="@+id/edKulad"
@@ -72,7 +72,7 @@
                         android:id="@+id/t3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="PAROLA" />
+                        android:text="@string/parola" />
                     <EditText
                         android:id="@+id/edSifre"
                         android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                         android:id="@+id/t4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="PAROLA TEKRAR" />
+                        android:text="@string/parolaTkr" />
                     <EditText
                         android:id="@+id/edSifreTekrar"
                         android:layout_width="match_parent"
@@ -100,7 +100,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Kaydol"
+                    android:text="@string/kaydol"
                     android:id="@+id/butonKaydol"
                     android:onClick="kayitClicked"/>
             </TableLayout>

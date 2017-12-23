@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/kameraAc"
-        android:title="Kamerayı aç" />
+        android:title="@string/kamera_ac" />
     <item
         android:id="@+id/galeriAc"
-        android:title="Galeriyi aç"/>
+        android:title="@string/galeri_ac"/>
 </menu>

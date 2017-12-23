@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Project</string>
+    <string name="kamera_ac">Open Camer</string>
+    <string name="galeri_ac">Open Gallery</string>
+    <string name="uyg_kapat">Close App</string>
+    <string name="dil_degistir">Change Language</string>
+    <string name="profil_goruntule">Open Profile</string>
+    <string name="cikis_yap">Logout</string>
+    <string name="ad">Name</string>
+    <string name="soyad">Surname</string>
+    <string name="kulAd">Username</string>
+    <string name="parola">Password</string>
+    <string name="parolaTkr">Password Again</string>
+    <string name="guncelle">Update</string>
+    <string name="kaydol">Register</string>
+    <string name="kitapAd">Book Name</string>
+    <string name="kitapIsbn">Book ISBN</string>
+    <string name="yazarAd">Author Name</string>
+    <string name="resimEkle">Add Photo</string>
+    <string name="kitapEkle">Add Book</string>
+    <string name="kitapGuncelle">Update Book</string>
+    <string name="kitapSil">Delete Book</string>
+    <string name="kitapResmi">Book Photo</string>
+    <string name="giris">Login</string>
+    <string name="hatirla">Remember Me</string>
+    <string name="kitapTur">Book Type</string>
+    <string name="goster">Show</string>
+    <string name="bos_alan">Please fill in the blank fields!</string>
+    <string name="kitap_basarili">Book update successful !</string>
+    <string name="kitap_sil">Book deletion successful!</string>
+    <string name="kitap_kayit">"Book entry successful! "</string>
+    <string name="kayit_basarili">Your registry successful!</string>
+    <string name="kull_hata">Username or password is incorrect!</string>
+    <string name="kul_giris">Login successful!</string>
+    <string name="kul_giris_hata">Login failed!</string>
+    <string name="kul_cikis">Logout successful!</string>
+    <string name="anasayfa">Homepage</string>
+</resources>

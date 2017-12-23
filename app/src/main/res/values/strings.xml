@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">Proje</string>
+    <string name="kamera_ac">Kamerayı Aç</string>
+    <string name="galeri_ac">Galeriyi aç</string>
+    <string name="goster">Göster</string>
+    <string name="uyg_kapat">Uygulamayı Kapat</string>
+    <string name="dil_degistir">Dili Değiştir</string>
+    <string name="profil_goruntule">Profilimi Görüntüle</string>
+    <string name="cikis_yap">Çıkış Yap</string>
+    <string name="anasayfa">Anasayfa</string>
+    <string name="ad">Adınız</string>
+    <string name="soyad">Soyadınız</string>
+    <string name="kulAd">Kullanıcı Adı</string>
+    <string name="parola">Parola</string>
+    <string name="parolaTkr">Parola Tekrar</string>
+    <string name="guncelle">Güncelle</string>
+    <string name="kaydol">Kayıt Ol</string>
+    <string name="kitapAd">Kitap Adı</string>
+    <string name="kitapIsbn">Kitap ISBN</string>
+    <string name="yazarAd">Yazar Adı</string>
+    <string name="kitapTur">Kitap Türü</string>
+    <string name="resimEkle">Resim Ekle</string>
+    <string name="kitapEkle">Kitap Ekle</string>
+    <string name="kitapGuncelle">Kitap Güncelle</string>
+    <string name="kitapSil">Kitap Sil</string>
+    <string name="kitapResmi">Kitap Resmi Ekle</string>
+    <string name="hatirla">Beni Hatırla</string>
+    <string name="giris">Giriş Yap</string>
+    <string name="bos_alan">Lütfen boş alanları doldurunuz!</string>
+    <string name="kitap_basarili">Kitap Güncelleme Başarıyla Gerçekleşmiştir!</string>
+    <string name="kitap_sil">Kitap Silme İşlemi Başarıyla Gerçekleşmiştir!</string>
+    <string name="kitap_kayit">Kitap Kaydı Başarıyla Gerçekleşmiştir!</string>
+    <string name="kayit_basarili">Kaydınız Başarıyla Tamamlanmıştır!</string>
+    <string name="kull_hata">Kullanıcı adı veya parola hatalı!</string>
+    <string name="kul_giris">Başarıyla Giriş Yaptınız!</string>
+    <string name="kul_giris_hata">Giriş Yapma İşleminiz Başarısız!</string>
+    <string name="kul_cikis">Başarıyla Çıkış Yaptınız!</string>
+
+
 </resources>

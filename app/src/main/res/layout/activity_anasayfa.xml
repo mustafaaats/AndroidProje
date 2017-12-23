@@ -36,13 +36,13 @@
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kitap Adi"
+                        android:text="@string/kitapAd"
                         android:layout_marginRight="10dp"
                         android:textColor="#000000"/>
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="kitap ismini giriniz"
+                        android:hint="@string/kitapAd"
                         android:id="@+id/kitapAdi"/>
                 </TableRow>
 
@@ -52,13 +52,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kitap ISBN"
+                        android:text="@string/kitapIsbn"
                         android:layout_marginRight="10dp"
                         android:textColor="#000000"/>
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="isbn"
+                        android:hint="@string/kitapIsbn"
                         android:inputType="numberDecimal"
                         android:id="@+id/kitapIsbn"/>
                 </TableRow>
@@ -68,13 +68,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Yazar Adı"
+                        android:text="@string/yazarAd"
                         android:layout_marginRight="10dp"
                         android:textColor="#000000"/>
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Yazar adı"
+                        android:hint="@string/yazarAd"
                         android:id="@+id/kitapYazar"/>
                 </TableRow>
                 <TableRow
@@ -83,13 +83,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kitap Türü"
+                        android:text="@string/kitapTur"
                         android:layout_marginRight="10dp"
                         android:textColor="#000000"/>
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Kitap Türü"
+                        android:hint="@string/kitapTur"
                         android:id="@+id/kitapTuru"/>
                 </TableRow>
                 <TableRow
@@ -98,13 +98,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Resim Ekle"
+                        android:text="@string/resimEkle"
                         android:layout_marginRight="10dp"
                         android:textColor="#000000"/>
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="kitap resmi"
+                        android:text="@string/kitapResmi"
                         android:id="@+id/btnKitapResmi"
                         android:onClick="resimClicked"/>
 
@@ -126,7 +126,7 @@
                     android:id="@+id/btnKitapEkle"
                     android:onClick="ekleClicked"
                     android:layout_margin="1dp"
-                    android:text="Kitap ekle"/>
+                    android:text="@string/kitapEkle"/>
 
                 <Button
                     android:layout_width="match_parent"
@@ -134,7 +134,7 @@
                     android:id="@+id/btnKitapGuncelle"
                     android:layout_margin="1dp"
                     android:onClick="guncelleClicked"
-                    android:text="Kitap Güncelle"/>
+                    android:text="@string/kitapGuncelle"/>
 
                 <Button
                     android:layout_width="match_parent"
@@ -142,7 +142,7 @@
                     android:id="@+id/btnKitapSil"
                     android:layout_margin="1dp"
                     android:onClick="silClicked"
-                    android:text="Kitap sil"/>
+                    android:text="@string/kitapSil"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
