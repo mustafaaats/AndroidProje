@@ -1,7 +1,7 @@
 #Internal package file, do not edit.
-#Sat Dec 23 23:46:08 EET 2017
+#Sun Dec 24 02:00:08 EET 2017
 0.baseType=DIRECTORY
-0.base=/home/metin/Masaüstü/yeniKutup/AndroidProje/app/build/intermediates/transforms/dexMerger/debug/18
+0.base=/home/metin/Masaüstü/en_yeni/AndroidProje/app/build/intermediates/transforms/dexMerger/debug/18
 0.path=classes.dex
 0.set=DEX
 count=1

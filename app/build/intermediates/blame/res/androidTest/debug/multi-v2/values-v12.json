@@ -17,6 +17,22 @@
             ]
         },
         {
+            "outputFile": "/home/metin/Masaüstü/en_yeni/AndroidProje/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v12/values-v12.xml",
+            "map": [
+                {
+                    "source": "/home/metin/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/cc4206add3cb09c20535188b77cecc39/res/values-v12/values-v12.xml",
+                    "from": {
+                        "startLines": "2,5,8,9",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,279,479,598",
+                        "endLines": "4,7,8,9",
+                        "endColumns": "12,12,118,94",
+                        "endOffsets": "274,474,593,688"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/metin/Masaüstü/yeniKutup/AndroidProje/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v12/values-v12.xml",
             "map": [
                 {

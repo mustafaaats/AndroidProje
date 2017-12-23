@@ -188,7 +188,7 @@ public class AnasayfaActivity extends MainActivity {
             Notification notification = new Notification.Builder(getApplicationContext())
                     .setContentTitle("İŞLEMİNİZ BAŞARILI")//Bildirim Başlık Metni
                     .setContentText(kitap_adi + " isimli kitabınız eklendi.") //Bildirimim açıklama metni
-                    .setSmallIcon(R.mipmap.ic_launcher) //Bildirimin küçük iconu
+                    .setSmallIcon(R.mipmap.ic_launcher_notification) //Bildirimin küçük iconu
                     .setContentIntent(pending) //Bildirim tıklanınca nereye gidilecek
                     .setAutoCancel(true) //Bildirim kapatılabilsinmi
                     .build(); //bildirim oluşturulsun

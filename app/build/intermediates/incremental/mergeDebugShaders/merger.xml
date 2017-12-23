@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/metin/Masaüstü/yeniKutup/AndroidProje/app/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/home/metin/Masaüstü/yeniKutup/AndroidProje/app/src/debug/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/metin/Masaüstü/en_yeni/AndroidProje/app/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/home/metin/Masaüstü/en_yeni/AndroidProje/app/src/debug/shaders"/></dataSet></merger>
