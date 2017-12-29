@@ -10,19 +10,11 @@ public class Kitaplardb {
     private String yazarAdi;
     private String kitapTuru;
     private int id;
-    private byte []data;
-    public byte[] getData() {
-        return data;
-    }
 
-    public void setData(byte[] data) {
-        this.data = data;
-    }
 
     public Kitaplardb (){}
 
-    public Kitaplardb(byte[] data, String kitapAdi, String ISBN, String yazarAdi, String kitapTuru){
-        this.data=data;
+    public Kitaplardb( String kitapAdi, String ISBN, String yazarAdi, String kitapTuru){
         this.kitapAdi=kitapAdi;
         this.ISBN=ISBN;
         this.yazarAdi=yazarAdi;

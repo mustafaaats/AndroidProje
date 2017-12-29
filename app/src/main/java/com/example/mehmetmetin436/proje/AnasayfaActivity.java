@@ -36,13 +36,9 @@ import java.util.Calendar;
 
 public class AnasayfaActivity extends MainActivity {
 
-    Bitmap thumbnail;
-    Button kitapBtn,resimBtn;
+    Button kitapBtn;
     Button guncelleKitap;
-    private static int RESULT_LOAD_IMAGE_GALERI=101;
-    private static int RESULT_LOAD_IMAGE_KAMERA=102;
-    PopupMenu popup;
-    ImageView kitapResim;
+
     EditText kitapAdEt;
     EditText isbnEt;
     EditText yazarAdEt;
@@ -50,6 +46,8 @@ public class AnasayfaActivity extends MainActivity {
     ListView kitapList;
 
     int id=1;
+
+    static String []bol=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +58,7 @@ public class AnasayfaActivity extends MainActivity {
         //proje yazısının anasayfa gibi çalışması için yazılan kod mainActivityi manifest dosyasında ana activity olarak ayarlamamız gerekiyor
 
         kitapBtn=(Button)findViewById(R.id.btnKitapEkle);
-        resimBtn=(Button)findViewById(R.id.btnKitapResmi);
-        kitapResim=(ImageView)findViewById(R.id.imageView);
+
         guncelleKitap=(Button)findViewById(R.id.btnKitapGuncelle);
 
         kitapAdEt=(EditText)findViewById(R.id.kitapAdi);
@@ -77,7 +74,7 @@ public class AnasayfaActivity extends MainActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
                 String item = kitapList.getItemAtPosition(index).toString();
-                String []bol = item.split("--");
+                bol = item.split("--");
                 id = Integer.valueOf(bol[0].toString());
 
                 kitapAdEt.setText(bol[1].toString());
@@ -88,67 +85,16 @@ public class AnasayfaActivity extends MainActivity {
             }
         });
         listele();
-        popup = new PopupMenu(AnasayfaActivity.this, resimBtn);
-        popup.getMenuInflater().inflate(R.menu.kamera_galeri, popup.getMenu());
-
-        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.kameraAc:
-                        Intent intentKamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        startActivityForResult(intentKamera,RESULT_LOAD_IMAGE_KAMERA);
-                        return  true;
-                    case R.id.galeriAc:
-                        Intent intentGaleri = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        startActivityForResult(intentGaleri,RESULT_LOAD_IMAGE_GALERI);
-                        return true;
-                    default :
-                        return false;
-                }
-            }
-        });
-    }
-    //gelen fotoğrafon image viewimize yerleşesini sağlar.
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == RESULT_LOAD_IMAGE_GALERI){
-            if(resultCode == RESULT_OK) {
-                try {
-                    final Uri imageUri = data.getData();
-                    final InputStream imageStream = getContentResolver().openInputStream(imageUri);
-                    final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-
-                    //set profile picture form gallery
-                    kitapResim.setImageBitmap(selectedImage);
 
 
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-            }
 
-        }else if(requestCode == RESULT_LOAD_IMAGE_KAMERA){
-            if(resultCode == RESULT_OK) {
-                onCaptureImageResult(data);
-            }
-        }
     }
 
-    private void onCaptureImageResult(Intent data) {
-        thumbnail = (Bitmap) data.getExtras().get("data");
-        kitapResim.setMaxWidth(200);
-        kitapResim.setImageBitmap(thumbnail);
-    }
+
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu,menu);
         return true;
-    }
-
-    public void resimClicked(View view){
-        popup.show();
     }
 
     public void listele(){
@@ -159,12 +105,7 @@ public class AnasayfaActivity extends MainActivity {
     }
 
     public void ekleClicked(View view){
-        kitapResim.setDrawingCacheEnabled(true);
-        kitapResim.buildDrawingCache();
-        Bitmap bitmap = kitapResim.getDrawingCache();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] data = baos.toByteArray();
+
         String kitap_adi=kitapAdEt.getText().toString();
         String Isbn=isbnEt.getText().toString();
         String yazar_adi=yazarAdEt.getText().toString();
@@ -172,7 +113,7 @@ public class AnasayfaActivity extends MainActivity {
         if (kitap_adi.isEmpty() || Isbn.isEmpty() || yazar_adi.isEmpty() || yazar_adi.isEmpty() || kitap_turu.isEmpty()){
             Toast.makeText(this, R.string.bos_alan, Toast.LENGTH_SHORT).show();
         }else{
-            Kitaplardb kitap=new Kitaplardb(data,kitap_adi,Isbn,yazar_adi,kitap_turu);
+            Kitaplardb kitap=new Kitaplardb(kitap_adi,Isbn,yazar_adi,kitap_turu);
             Database db = new Database(AnasayfaActivity.this);
             db.kitapEkle(kitap);
             Toast.makeText(this, R.string.kitap_kayit, Toast.LENGTH_SHORT).show();
@@ -203,6 +144,7 @@ public class AnasayfaActivity extends MainActivity {
         }
     }
     public void guncelleClicked(View view) {
+
         Database DB = new Database(AnasayfaActivity.this);
         String kitap_adi = kitapAdEt.getText().toString();
         String isbn = isbnEt.getText().toString();
@@ -210,6 +152,9 @@ public class AnasayfaActivity extends MainActivity {
         String kitap_turu = kitapTuruEt.getText().toString();
         if (kitap_adi.isEmpty() || isbn.isEmpty() || yazar_adi.isEmpty() || yazar_adi.isEmpty() || kitap_turu.isEmpty()) {
             Toast.makeText(this, R.string.bos_alan, Toast.LENGTH_SHORT).show();
+        }
+        else if(bol[1].equals(kitap_adi)||bol[2].equals(isbn)||bol[3].equals(yazar_adi)||bol[4].equals(kitap_turu)){
+            Toast.makeText(AnasayfaActivity.this,"Bir değişiklik yapmadınız lütfen bir değiklik yapınız",Toast.LENGTH_LONG).show();
         } else {
 
             Kitaplardb kitap = new Kitaplardb(id, kitap_adi, isbn, yazar_adi, kitap_turu);

@@ -14,7 +14,7 @@
     <application
         android:allowBackup="true"
         android:debuggable="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_iconn"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -34,14 +34,6 @@
                 android:value="com.example.mehmetmetin436.proje.MainActivity" />
         </activity>
         <activity android:name="com.example.mehmetmetin436.proje.ProfileActivity" />
-
-        <receiver
-            android:name="com.example.mehmetmetin436.proje.AlarmReceiver"
-            android:enabled="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
 
         <meta-data
             android:name="android.support.VERSION"

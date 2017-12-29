@@ -10,8 +10,25 @@ public class Kullanicilardb {
     private String ad;
     private String sifre;
     private int id;
-
+    private byte[]data;
     public Kullanicilardb(){}
+
+    public Kullanicilardb(String ad, String soyad, String kulad, String sifre,byte[]data){
+        this.data=data;
+        this.kulad=kulad;
+        this.soyad=soyad;
+        this.sifre=sifre;
+        this.ad=ad;
+    }
+
+    public Kullanicilardb(int id ,String ad, String soyad, String kulad, String sifre,byte[]data){
+        this.id=id;
+        this.data=data;
+        this.kulad=kulad;
+        this.soyad=soyad;
+        this.sifre=sifre;
+        this.ad=ad;
+    }
 
     public Kullanicilardb(String ad, String soyad, String kulad, String sifre){
         this.kulad=kulad;
@@ -19,6 +36,7 @@ public class Kullanicilardb {
         this.sifre=sifre;
         this.ad=ad;
     }
+
 
     public Kullanicilardb(String kulad, String sifre){
         this.kulad=kulad;
@@ -32,6 +50,13 @@ public class Kullanicilardb {
         this.id=id;
     }
 
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
 
     public String getSoyad() {
         return soyad;

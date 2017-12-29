@@ -91,6 +91,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -117,8 +118,8 @@ public class Database extends SQLiteOpenHelper {
     private static final String COLOUMN_KITAPTUR="kitap_turu";
     private static final String COLOUMN_IMAGEK="image";
 
-    private static final String queryKullanici = "CREATE TABLE "+TABLE_NAME+" ("+COLOUMN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+COLOUMN_AD+" TEXT NOT NULL,"+COLOUMN_SOYAD+" TEXT NOT NULL,"+COLOUMN_KULAD+" TEXT NOT NULL,"+COLOUMN_SIFRE+" TEXT NOT NULL)";
-    private static final String queryKitap = "CREATE TABLE "+TABLE2_NAME+" ("+COLOUMN_IDKITAP+" INTEGER PRIMARY KEY AUTOINCREMENT, "+COLOUMN_KITAPAD+" TEXT NOT NULL, "+COLOUMN_ISBN+" TEXT NOT NULL, "+COLOUMN_YAZARAD+" TEXT NOT NULL, "+COLOUMN_KITAPTUR+" TEXT NOT NULL,"+COLOUMN_IMAGEK+" BLOB)";
+    private static final String queryKullanici = "CREATE TABLE "+TABLE_NAME+" ("+COLOUMN_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+COLOUMN_AD+" TEXT NOT NULL,"+COLOUMN_SOYAD+" TEXT NOT NULL,"+COLOUMN_KULAD+" TEXT NOT NULL,"+COLOUMN_SIFRE+" TEXT NOT NULL,"+COLOUMN_IMAGEK+" BLOB)";
+    private static final String queryKitap = "CREATE TABLE "+TABLE2_NAME+" ("+COLOUMN_IDKITAP+" INTEGER PRIMARY KEY AUTOINCREMENT, "+COLOUMN_KITAPAD+" TEXT NOT NULL, "+COLOUMN_ISBN+" TEXT NOT NULL, "+COLOUMN_YAZARAD+" TEXT NOT NULL, "+COLOUMN_KITAPTUR+" TEXT NOT NULL)";
 
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -147,12 +148,15 @@ public class Database extends SQLiteOpenHelper {
         cont.put(COLOUMN_KULAD,kullanicilar.getKulad());
         cont.put(COLOUMN_SIFRE,kullanicilar.getSifre());
 
+        cont.put(COLOUMN_IMAGEK,kullanicilar.getData());
+
         SQLiteDatabase DB = this.getWritableDatabase();
 
         DB.insert(TABLE_NAME,null,cont);
         DB.close();
     }
     static String[] kullanici;
+    static byte[]kul_p=null;
     public boolean varMı(Kullanicilardb kullanicilar){
         SQLiteDatabase DB = this.getReadableDatabase();
 
@@ -166,6 +170,7 @@ public class Database extends SQLiteOpenHelper {
         int IKULAD = cursor.getColumnIndex(COLOUMN_KULAD);
         int ISIFRE = cursor.getColumnIndex(COLOUMN_SIFRE);*/
         int a=0;
+
         while (cursor.moveToNext()){
             String kulad = cursor.getString(3);
             String sifre = cursor.getString(4);
@@ -198,6 +203,7 @@ public class Database extends SQLiteOpenHelper {
         }
         return urunlist;
     }
+
     public void kitapEkle(Kitaplardb kitaplar){
 
         ContentValues cont = new ContentValues();
@@ -205,8 +211,6 @@ public class Database extends SQLiteOpenHelper {
         cont.put(COLOUMN_ISBN,kitaplar.getISBN());
         cont.put(COLOUMN_YAZARAD,kitaplar.getYazarAdi());
         cont.put(COLOUMN_KITAPTUR,kitaplar.getKitapTuru());
-
-        cont.put(COLOUMN_IMAGEK,kitaplar.getData());
 
         SQLiteDatabase DB = this.getWritableDatabase();
         DB.insert(TABLE2_NAME,null,cont);
@@ -231,10 +235,24 @@ public class Database extends SQLiteOpenHelper {
         String where=COLOUMN_IDKITAP+"="+kitaplar.getId();
         DB.delete(TABLE2_NAME,where,null);
         DB.close();
-
     }
+
     public String[] profil(){
         return kullanici;
+    }
+
+
+    public byte[] profil_fotom(int gelen_id){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor;
+        byte [] a=null;
+        //gelen_id=1;
+        cursor=DB.rawQuery("SELECT image FROM kullanicilar WHERE id="+gelen_id,null);
+        if(cursor.moveToFirst()){
+            a=cursor.getBlob(0);
+        }
+
+        return a;
     }
 
     public String[] kullaniciGuncelle(Kullanicilardb kullanici){
@@ -245,6 +263,8 @@ public class Database extends SQLiteOpenHelper {
         cont.put(COLOUMN_SOYAD,kullanici.getSoyad());
         cont.put(COLOUMN_KULAD,kullanici.getKulad());
         cont.put(COLOUMN_SIFRE,kullanici.getSifre());
+
+        cont.put(COLOUMN_IMAGEK,kullanici.getData());
 
         String where = COLOUMN_ID+"="+kullanici.getId();
         DB.update(TABLE_NAME,cont,where,null);
