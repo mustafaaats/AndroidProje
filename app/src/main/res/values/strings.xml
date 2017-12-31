@@ -29,6 +29,7 @@
     <string name="kitapGuncelle">Kitap Güncelle</string>
     <string name="kitapSil">Kitap Sil</string>
     <string name="kitapResmi">Kitap Resmi Ekle</string>
+    <string name="profilResmi">Profil Foroğrafı Ekle</string>
     <string name="hatirla">Beni Hatırla</string>
     <string name="giris">Giriş Yap</string>
     <string name="bos_alan">Lütfen boş alanları doldurunuz!</string>
@@ -42,5 +43,7 @@
     <string name="kul_cikis">Başarıyla Çıkış Yaptınız!</string>
     <string name="kapat">Uygulamayı kapatmak istediğinizden emin misiniz?</string>
     <string name="onay">Güncellemelerin uygulanabilmesi için giriş ekranına yönlendirileceksiniz.Onaylıyor musunuz?</string>
+    <string name="degistir">Bir değişiklik yapmadınız lütfen bir değişiklik yapınız.</string>
+
 
 </resources>

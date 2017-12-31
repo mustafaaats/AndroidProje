@@ -43,4 +43,6 @@
     <string name="onay">You will be redirected to the login screen to apply the updates.Do you confirm?</string>
     <string name="bekle">Logging in. Please wait...</string>
     <string name="bekle1">Logging out.Please wait...</string>
+    <string name="profilResmi">Add Profile Photo</string>
+    <string name="degistir">Please make a change if you have not made a change.</string>
 </resources>

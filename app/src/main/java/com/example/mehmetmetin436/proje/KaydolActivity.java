@@ -20,6 +20,7 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.nio.ByteBuffer;
 
 public class KaydolActivity extends MainActivity {
 
@@ -42,8 +43,7 @@ public class KaydolActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kaydol);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//https://gelecegiyazanlar.turkcell.com.tr/konu/android/egitim/android-201/eylem-dugmeleri-eklemek
-        //proje yazısının anasayfa gibi çalışması için yazılan kod mainActivityi manifest dosyasında ana activity olarak ayarlamamız gerekiyor
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         adEd = (EditText)findViewById(R.id.edAd);
@@ -137,8 +137,12 @@ public class KaydolActivity extends MainActivity {
         }
         else {
             if (sifre.equals(sifreTekrar)) {
+                if (kulFoto.getDrawable()==null){
+                    data= ByteBuffer.allocate(4).putInt(1905).array();
+                }
                 Kullanicilardb kullanici = new Kullanicilardb(adi, soyadi, kulad, sifre,data);
                 Database db = new Database(KaydolActivity.this);
+
                 db.kullaniciEkle(kullanici);
                 Toast.makeText(this, R.string.kayit_basarili, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, MainActivity.class);
@@ -148,23 +152,5 @@ public class KaydolActivity extends MainActivity {
             }
         }
     }
-    /*public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu,menu);
-        menu.getItem(0).setVisible(false);
-        menu.getItem(1).getSubMenu().getItem(0).setVisible(false);
-        menu.getItem(1).getSubMenu().getItem(2).setVisible(false);
-        return super.onCreateOptionsMenu(menu);
-
-    }
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()) {
-            case R.id.uygulmaKapat:
-                System.exit(0);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-    }*/
 
 }

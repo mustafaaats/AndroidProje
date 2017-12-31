@@ -54,8 +54,6 @@ public class AnasayfaActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anasayfa);
 
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);//https://gelecegiyazanlar.turkcell.com.tr/konu/android/egitim/android-201/eylem-dugmeleri-eklemek
-        //proje yazısının anasayfa gibi çalışması için yazılan kod mainActivityi manifest dosyasında ana activity olarak ayarlamamız gerekiyor
 
         kitapBtn=(Button)findViewById(R.id.btnKitapEkle);
 
@@ -154,7 +152,7 @@ public class AnasayfaActivity extends MainActivity {
             Toast.makeText(this, R.string.bos_alan, Toast.LENGTH_SHORT).show();
         }
         else if(bol[1].equals(kitap_adi)||bol[2].equals(isbn)||bol[3].equals(yazar_adi)||bol[4].equals(kitap_turu)){
-            Toast.makeText(AnasayfaActivity.this,"Bir değişiklik yapmadınız lütfen bir değiklik yapınız",Toast.LENGTH_LONG).show();
+            Toast.makeText(AnasayfaActivity.this,R.string.degistir,Toast.LENGTH_LONG).show();
         } else {
 
             Kitaplardb kitap = new Kitaplardb(id, kitap_adi, isbn, yazar_adi, kitap_turu);

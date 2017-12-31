@@ -96,7 +96,7 @@
                         android:inputType="textPassword"
                         />
                 </TableRow>
-                <TableRow
+                /*<TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >>
                     <TextView
@@ -105,19 +105,20 @@
                         android:text="@string/resimEkle"
                         android:layout_marginRight="10dp"
                         android:textColor="#000000"/>
+
                     <Button
+                        android:id="@+id/btnKitapResmi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/kitapResmi"
-                        android:id="@+id/btnKitapResmi"
-                        android:onClick="resimClicked"/>
+                        android:onClick="resimClicked"
+                        android:text="@string/profilResmi" />
 
                     <ImageView
                         android:id="@+id/imageView"
                         android:layout_width="100px"
                         android:layout_height="100px"
                         />
-                </TableRow>
+                </TableRow>*/
 
                 <Button
                     android:layout_width="match_parent"

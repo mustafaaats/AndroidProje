@@ -1,4 +1,4 @@
-#Fri Dec 29 17:38:57 EET 2017
-base.0=/home/metin/Masaüstü/AndroidKutuphane/LibraryAutomationAndroid/app/build/intermediates/transforms/dexMerger/debug/24
+#Sun Dec 31 12:23:00 EET 2017
+base.0=/home/mustafaaats/Desktop/Mobil/AndroidProje/app/build/intermediates/transforms/dexMerger/debug/43
 path.0=classes.dex
 renamed.0=classes.dex

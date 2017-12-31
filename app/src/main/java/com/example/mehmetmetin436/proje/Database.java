@@ -164,11 +164,7 @@ public class Database extends SQLiteOpenHelper {
 
         Cursor cursor = DB.query(TABLE_NAME,user,null, null, null, null, null);
 
-        /*int IROW = cursor.getColumnIndex(COLOUMN_ID);
-        int IAD = cursor.getColumnIndex(COLOUMN_AD);
-        int ISOYAD = cursor.getColumnIndex(COLOUMN_SOYAD);
-        int IKULAD = cursor.getColumnIndex(COLOUMN_KULAD);
-        int ISIFRE = cursor.getColumnIndex(COLOUMN_SIFRE);*/
+
         int a=0;
 
         while (cursor.moveToNext()){
@@ -196,7 +192,6 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase DB = this.getReadableDatabase();
 
         String kitap[]={COLOUMN_IDKITAP,COLOUMN_KITAPAD,COLOUMN_ISBN,COLOUMN_YAZARAD,COLOUMN_KITAPTUR};
-        //Cursor cursor = DB.query(TABLE2_NAME,urun,null,null,null,null,null,null);
         Cursor cursor = DB.query(TABLE2_NAME,kitap,null, null, null, null, null);
         while (cursor.moveToNext()){
             urunlist.add(cursor.getInt(0)+"--"+cursor.getString(1)+"--"+cursor.getString(2)+"--"+cursor.getString(3)+"--"+cursor.getString(4));
@@ -246,7 +241,6 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase DB = this.getWritableDatabase();
         Cursor cursor;
         byte [] a=null;
-        //gelen_id=1;
         cursor=DB.rawQuery("SELECT image FROM kullanicilar WHERE id="+gelen_id,null);
         if(cursor.moveToFirst()){
             a=cursor.getBlob(0);
@@ -274,18 +268,4 @@ public class Database extends SQLiteOpenHelper {
         return array;
     }
 
-    /*Kitaplardb getContact(int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String kitap[]={COLOUMN_IDKITAP,COLOUMN_KITAPAD,COLOUMN_ISBN,COLOUMN_YAZARAD,COLOUMN_KITAPTUR,COLOUMN_IMAGEK};
-        Cursor cursor = db.query(TABLE2_NAME,kitap, COLOUMN_IDKITAP + "=?",
-                new String[] { String.valueOf(id) }, null, null, null, null);
-        if (cursor != null)
-            cursor.moveToFirst();
-
-        Kitaplardb kitap = new Kitaplardb(Integer.parseInt(cursor.getString(0)),
-               ,cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getBlob(5));
-
-        return kitap;
-
-    }*/
 }
